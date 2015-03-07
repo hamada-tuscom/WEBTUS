@@ -30,6 +30,7 @@ var Ajax = function(msg,callback){
 
 var GalleryItem = function(container, property){
   this.container = container;
+  this.template = document.getElementsById("itemTemplate");
   this.data={
     "id": property.ID,
     "title": property.title,
@@ -40,24 +41,38 @@ var GalleryItem = function(container, property){
   };
 };
 GalleryItem.prototype.writeHTML = function(){
-  this.container.innerHTML += ['<article class="galleryItem">',
-    '<h1>' + this.data.title + '</h1>',
-    '<img src="' + this.data.sc + '" alt="screenshot">',
-    '<section>',
-      '<p>作者: ' + this.data.author + '</p>',
-      '<p>' + this.data.excerpt + '</p>',
-      '<div class = "like" id = "like"' + this.data.id + '>Like!: ' + this.data.Like +'</div>',
-    '</section>',
-  '</article>'].join("\n");
+  var item = this.template.cloneNode(ture);
+  item.id = 'item' + this.data.id;
+  item.style.display = '';
+
+  item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
+  item.childNodes[3].setAttribute( "src" , this.data.src );
+  item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
+  item.childNodes[5].childNodes[3].appendChild(document.createTextNode( this.data.excerpt ));
+  item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
+  item.childNodes[5].childNodes[5].id = "like"+this.data.id;
+
+  this.container.appendChild(item);
+
+
+  // this.container.innerHTML += ['<article class="galleryItem">',
+  //   '<h1>' + this.data.title + '</h1>',
+  //   '<img src="' + this.data.sc + '" alt="screenshot">',
+  //   '<section>',
+  //     '<p>作者: ' + this.data.author + '</p>',
+  //     '<p>' + this.data.excerpt + '</p>',
+  //     '<div class = "like" id = "like"' + this.data.id + '>Like!: ' + this.data.Like +'</div>',
+  //   '</section>',
+  // '</article>'].join("\n");
 };
 GalleryItem.prototype.addClickEvent = function(){
   console.log(this.data.id);
   console.log("like"+this.data.id);
   console.log(document.getElementById("like"+this.data.id));
-  // document.getElementById('like'+this.data.id).addEventListener('click', function(){
-  //     alert('clicked: ' + this.data.id);
-  //   }
-  // );
+  document.getElementById('like'+this.data.id).addEventListener('click', function(){
+      alert('clicked: ' + this.data.id);
+    }
+  );
 };
 
 
