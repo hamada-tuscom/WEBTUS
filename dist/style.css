@@ -70,7 +70,7 @@ header {
     box-shadow: 1px 2px 3px 1px rgba(0, 0, 50, 0.3);
     font-size: 0.8rem; }
 
-#detail {
+.detail {
   font-family: "メイリオ";
   background-color: #cde;
   width: 80%;
@@ -82,7 +82,7 @@ header {
   display: table;
   padding-bottom: 15px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5); }
-  #detail h1 {
+  .detail h1 {
     background-color: #10426A;
     color: #def;
     width: 100%;
@@ -90,33 +90,33 @@ header {
     padding: 20px;
     box-sizing: border-box;
     font-size: 1.8rem; }
-  #detail #sc {
+  .detail #sc {
     display: table-row;
     text-align: center; }
-    #detail #sc img {
+    .detail #sc img {
       width: 80%;
       display: table-cell;
       margin: 20px 10% 20px 10%; }
-  #detail #description {
+  .detail #description {
     display: table-row;
     text-align: left;
     position: relative; }
-    #detail #description p, #detail #description section {
+    .detail #description p, .detail #description section {
       margin-top: 10px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 10px;
       width: 90%; }
-    #detail #description p {
+    .detail #description p {
       font-size: 1.4rem; }
-    #detail #description section > p {
+    .detail #description section > p {
       font-size: 1.2rem;
       margin-top: 20px;
       margin-bottom: 30px; }
-    #detail #description h1 {
+    .detail #description h1 {
       width: 100%;
       font-size: 1.4rem; }
-    #detail #description .like {
+    .detail #description .like {
       position: absolute;
       top: 0;
       right: 5%;
@@ -130,7 +130,7 @@ header {
       color: #def;
       box-shadow: 0 0 5px 0 rgba(0, 0, 50, 0.5);
       box-sizing: border-box; }
-      #detail #description .like > div {
+      .detail #description .like > div {
         position: absolute;
         width: 50px;
         height: 50px;
@@ -142,15 +142,15 @@ header {
         padding-top: 10px;
         color: #def;
         box-shadow: 0 5px 5px 0 rgba(0, 0, 50, 0.5); }
-  #detail #comments {
+  .detail #comments {
     display: table-row; }
-    #detail #comments h1, #detail #comments section {
+    .detail #comments h1, .detail #comments section {
       margin-left: auto;
       margin-right: auto; }
-    #detail #comments h1 {
+    .detail #comments h1 {
       font-size: 1.4rem;
       width: 90%; }
-    #detail #comments section {
+    .detail #comments section {
       width: 80%;
       margin-top: 10px;
       border-radius: 10px;

@@ -53,6 +53,10 @@ GalleryItem.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
   this.item.childNodes[5].childNodes[5].id = "like"+this.data.id;
 
+  while(this.container.firstChild){
+    this.container.removeChild(this.container.firstChild);
+  }
+
   this.container.appendChild(this.item);
 };
 GalleryItem.prototype.addClickEvent = function(){
@@ -78,6 +82,8 @@ GalleryItem.prototype.addClickEvent = function(){
 
 var Detail = function(container, property){
   this.container = container;
+  this.template = document.getElementById("detailTemplate");
+  this.detail = undefined;
   this.data={
     "id": property.Product.ID,
     "title": property.Product.title,
@@ -90,15 +96,43 @@ var Detail = function(container, property){
   };
 };
 Detail.prototype.writeHTML = function(){
-  this.container.innerHTML += '<article class = "galleryItem">' + [
-    ""+this.data.title,
-    ""+this.data.sc,
-    ""+this.data.author,
-    ""+this.data.excerpt,
-    ""+this.data.Like,
-    ""+this.data.description,
-    ""+this.data.Comments.join("<br>\n")
-  ].join("\n") + "</article>";
+
+  this.item = this.template.cloneNode(true);
+  this.item.id = 'detail' + this.data.id;
+  this.item.style.display = '';
+
+  this.item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
+  this.item.childNodes[3].childNodes[1].setAttribute( "src" , this.data.src );
+  this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
+  this.item.childNodes[5].childNodes[3].childNodes[3].appendChild(document.createTextNode( this.data.description ));
+  this.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( this.data.Like ));
+  this.item.childNodes[5].childNodes[5].id = "detailLike"+this.data.id;
+
+  while(this.container.firstChild){
+    this.container.removeChild(this.container.firstChild);
+  }
+
+  this.container.appendChild(this.item);
+
+};
+Detail.prototype.addClickEvent = function(){
+  document.getElementById('detailLike'+this.data.id).addEventListener('click',
+    (function(that){ return function(){
+
+      Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
+
+        console.log(res);
+
+        var data = JSON.parse(res);
+        that.data.Like = data[0].Like;
+        while(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild){
+          that.item.childNodes[5].childNodes[5].childNodes[1].removeChild(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild);
+        }
+        that.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( that.data.Like ));
+        };})(that));
+
+    };})(this)
+  );
 };
 
 
@@ -108,7 +142,6 @@ var Page = function(container){
   this.display = function(Id){
 
     if(Id === undefined){//Galleryページの時
-      //TODO: innerHTML="";をしておく。
       var gallery = [];
 
       Ajax({"mode":"ReadAll"},function(res){
@@ -129,7 +162,6 @@ var Page = function(container){
     }
 
     else{//個別ページの時
-      //TODO: innerHTML="";をしておく。
 
       Ajax({"mode":"ReadDetail"},function(res){
             var data = JSON.parse(res);
@@ -147,5 +179,5 @@ function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
-  page.display();
+  page.display(2);
 }
