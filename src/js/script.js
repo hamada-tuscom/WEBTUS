@@ -92,7 +92,7 @@ var Detail = function(container, property){
     "excerpt": property.Product.excerpt,
     "Like": property.Product.Like,
     "description": property.Product.description,
-    "comments": propaty.Comments
+    "comments": property.Comments
   };
 };
 Detail.prototype.writeHTML = function(){
