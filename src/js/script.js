@@ -22,7 +22,7 @@ var Ajax = function(msg,callback){
       console.log(this.status);
     }
   };
-  xhr.open('POST', '#');
+  xhr.open('POST', 'js/api.php');
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(EncodeHTMLForm(msg));
 };
