@@ -166,9 +166,9 @@ var Page = function(container){
     else{//個別ページの時
 
       Ajax({"mode":"ReadDetail"},function(res){
-            var data = JSON.parse(res);
+            console.log(res);
 
-            console.log(data);
+            var data = JSON.parse(res);
 
             var detail = new Detail(container,data);
             detail.writeHTML();
