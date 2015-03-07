@@ -105,6 +105,13 @@ Detail.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( this.data.Like ));
   this.item.childNodes[5].childNodes[5].childNodes[3].id = "detailLike"+this.data.id;
 
+  while(this.item.childNodes[7].firstChild){
+    this.item.childNodes[7].removeChild(this.item.childNodes[7].firstChild);
+  }
+  this.item.childNodes[7].appendChild(document.createElement("h1")).appendChild(document.createTextNode("コメント"));
+  for(var i = 0; i < this.data.Comments.length; i++){
+    this.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode(this.data.Comments[i]));
+  }
   while(this.container.firstChild){
     this.container.removeChild(this.container.firstChild);
   }
@@ -164,7 +171,7 @@ var Page = function(container){
 
             var detail = new Detail(container,data);
             detail.writeHTML();
-            
+
             detail.addClickEvent();
 
       });
