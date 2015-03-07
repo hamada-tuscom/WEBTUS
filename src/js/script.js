@@ -109,8 +109,8 @@ Detail.prototype.writeHTML = function(){
     this.item.childNodes[7].removeChild(this.item.childNodes[7].firstChild);
   }
   this.item.childNodes[7].appendChild(document.createElement("h1")).appendChild(document.createTextNode("コメント"));
-  for(var i = 0; i < this.data.Comments.length; i++){
-    this.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode(this.data.Comments[i]));
+  for(var i = 0; i < this.data.comments.length; i++){
+    this.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode(this.data.comments[i]));
   }
   while(this.container.firstChild){
     this.container.removeChild(this.container.firstChild);
