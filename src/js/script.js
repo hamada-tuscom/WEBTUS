@@ -118,12 +118,10 @@ Detail.prototype.writeHTML = function(){
 
 };
 Detail.prototype.addClickEvent = function(){
-  document.getElementById('detailLike'+this.data.id).addEventListener('click',
+  document.getElementById('datailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
-
-        console.log(res);
 
         var data = JSON.parse(res);
         that.data.Like = data[0].Like;
@@ -166,8 +164,6 @@ var Page = function(container){
     else{//個別ページの時
 
       Ajax({"mode":"ReadDetail", "ID": 1},function(res){
-            console.log(res);
-
             var data = JSON.parse(res);
 
             var detail = new Detail(container,data);
