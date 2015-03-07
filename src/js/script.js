@@ -59,7 +59,7 @@ GalleryItem.prototype.writeHTML = function(){
 
   this.container.appendChild(this.item);
 };
-GalleryItem.prototype.addLikeEvent = function(){
+GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
@@ -75,15 +75,7 @@ GalleryItem.prototype.addLikeEvent = function(){
     };})(this)
   );
 };
-GalleryItem.prototype.addClickEvent = function(){
-  document.getElementById('item' + this.data.id).addEventListener('click',
-    (function(that){ return function(){
 
-      page.display(that.data.id);
-
-    };})(this)
-  );
-};
 
 
 var Detail = function(container, property){
@@ -128,7 +120,7 @@ Detail.prototype.writeHTML = function(){
 
   this.container.appendChild(this.item);
 };
-Detail.prototype.addLikeEvent = function(){
+Detail.prototype.addClickEvent = function(){
   document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
@@ -182,7 +174,7 @@ var Page = function(container){
             gallery[i].writeHTML();
           }
           for(i = 0; i < gallery.length; i++){
-            gallery[i].addLikeEvent();
+            gallery[i].addClickEvent();
           }
       });
     }
@@ -192,7 +184,7 @@ var Page = function(container){
             var data = JSON.parse(res);
             var detail = new Detail(container,data);
             detail.writeHTML();
-            detail.addLikeEvent();
+            detail.addClickEvent();
             detail.addSubmitEvent();
       });
     }
@@ -205,5 +197,5 @@ function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
-  page.display();
+  page.display(2);
 }
