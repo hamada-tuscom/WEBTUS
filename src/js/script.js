@@ -59,9 +59,10 @@ GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
-      console.log(that);
-      alert('clicked: ' + that.data.id);
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
+        
+        console.log(res);
+
         var data = JSON.parse(res);
         that.data.Like = data.Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
