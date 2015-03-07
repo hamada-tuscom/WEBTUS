@@ -28,8 +28,9 @@ var Ajax = function(msg,callback){
 };
 
 
-var GalleryItem = function(container, property){
+var GalleryItem = function(container, page, property){
   this.container = container;
+  this.page = page;
   this.template = document.getElementById("itemTemplate");
   this.item = undefined;
   this.data={
@@ -75,7 +76,7 @@ GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('item'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
-      page.display(that.data.id);
+      that.page.display(that.data.id);
 
     };})(this)
   );
@@ -178,7 +179,7 @@ var Page = function(container){
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
           for(var i = 0; i < data.length; i++){
-            gallery[i]= new GalleryItem(container,data[i]);
+            gallery[i]= new GalleryItem(container, this, data[i]);
           }
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
