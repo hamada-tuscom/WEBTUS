@@ -166,6 +166,8 @@ function method_Submit(){
 
   }
 
+  method_ReadComment();
+
 
 
 
