@@ -51,11 +51,13 @@ GalleryItem.prototype.writeHTML = function(){
   '</article>'].join("\n");
 };
 GalleryItem.prototype.addClickEvent = function(){
-  console.log(document.getElementById('like'+this.data.id));
-  document.getElementById('like'+this.data.id).addEventListener('click', function(){
-      alert('clicked: ' + this.data.id);
-    }
-  );
+  console.log(this.data.id);
+  console.log("like"+this.data.id);
+  console.log(document.getElementById("like"+this.data.id));
+  // document.getElementById('like'+this.data.id).addEventListener('click', function(){
+  //     alert('clicked: ' + this.data.id);
+  //   }
+  // );
 };
 
 
