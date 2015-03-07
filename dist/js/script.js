@@ -169,7 +169,7 @@ var Page = function(container){
           detail.addSubmitEvent();
     });
   };
-  this.writeDetail = function(){
+  this.writeDetail = function(that){
     Ajax({"mode":"ReadAll"},function(res){
         var gallery = [];
         var data = JSON.parse(res);
@@ -183,9 +183,9 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= page.gallery.length; i++){
-          document.getElementById('item'+i).addEventListener('click',writeGallery(i));
+          document.getElementById('item'+i).addEventListener('click',that.writeGallery(i));
         }
-    });
+    }).bind(this);
   };
 
   this.display = function(Id){
