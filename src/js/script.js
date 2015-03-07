@@ -168,6 +168,8 @@ var Page = function(container){
       Ajax({"mode":"ReadDetail"},function(res){
             var data = JSON.parse(res);
 
+            console.log(data);
+
             var detail = new Detail(container,data);
             detail.writeHTML();
 
