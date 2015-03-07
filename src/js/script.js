@@ -183,7 +183,7 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= page.gallery.length; i++){
-          document.getElementById('item'+i).addEventListener('click',writeFallery(i));
+          document.getElementById('item'+i).addEventListener('click',writeGallery(i));
         }
     });
   };
