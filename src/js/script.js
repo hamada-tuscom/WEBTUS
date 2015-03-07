@@ -197,5 +197,5 @@ function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
-  page.display(2);
+  page.display();
 }
