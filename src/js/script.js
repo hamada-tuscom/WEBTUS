@@ -137,7 +137,7 @@ Detail.prototype.addClickEvent = function(){
   );
 };
 Detail.prototype.submitComment = function(){
-  document.getElementById("form").addEventListener('click',
+  document.getElementById("submit").addEventListener('click',
     (function(that){ return function(){
 
       Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("comment").value},(function(that){return function(res){
