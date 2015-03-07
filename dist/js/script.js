@@ -57,12 +57,12 @@ GalleryItem.prototype.writeHTML = function(){
 };
 GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
-    (function(that){ return function(that){
+    (function(that){ return function(){
 
+      console.log(that);
       alert('clicked: ' + that.data.id);
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
         var data = JSON.parse(res);
-        console.log(that);
         that.data.Like = data.Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
           that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
