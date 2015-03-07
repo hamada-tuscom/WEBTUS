@@ -137,6 +137,7 @@ Detail.prototype.addClickEvent = function(){
   );
 };
 Detail.prototype.addSubmitEvent = function(){
+  console.log(document.getElementById("submit"));
   document.getElementById("submit").addEventListener('click',
     (function(that){ return function(){
 
