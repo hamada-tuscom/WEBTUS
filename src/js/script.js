@@ -47,16 +47,16 @@ GalleryItem.prototype.writeHTML = function(){
     '<section>',
       '<p>作者: ' + this.data.author + '</p>',
       '<p>' + this.data.excerpt + '</p>',
-      '<div class = "like" id = like' + this.data.id + '>Like!: ' + this.data.Like +'</div>',
+      '<div class = "like" id = "like"' + this.data.id + '>Like!: ' + this.data.Like +'</div>',
     '</section>',
   '</article>'].join("\n");
-
+};
+GalleryItem.prototype.addEventListener = function(){
   this.like = document.getElementById('like'+this.data.id);
   this.like.addEventListener('click', function(){
       alert('clicked: ' + this.data.id);
     }
   );
-
 };
 
 
@@ -103,6 +103,10 @@ var Page = function(container){
           }
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
+          }
+
+          for(i = 0; i < gallery.length; i++){
+            gallery[i].addEventListener();
           }
 
       });
