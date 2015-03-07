@@ -60,16 +60,17 @@ function method_Write(){
 function method_ReadComment(){
   $pdo = GetDB();
   $id = param("ID");
-  $stmt = $pdo ->Preapre("select Comment from Comment where prod_id = ?");
+  $stmt = $pdo ->Prepare("select Comment from Comments where prod_id = ?");
   $stmt->execute(array($id));
   $a = $stmt->fetchAll();
 
 $comments = array();
 foreach($a as $r){
   $comments[] = ["comment" =>$r["Comment"]];
+//  echo $r["Comment"];
 
 }
-json_encode($comments);
+echo json_encode($comments);
 
 }
 
