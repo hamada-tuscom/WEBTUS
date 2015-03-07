@@ -31,6 +31,7 @@ var Ajax = function(msg,callback){
 var GalleryItem = function(container, page, property){
   this.container = container;
   this.page = page;
+  cosole.log(page);
   this.template = document.getElementById("itemTemplate");
   this.item = undefined;
   this.data={
