@@ -53,7 +53,7 @@ GalleryItem.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
   this.item.childNodes[5].childNodes[5].id = "like"+this.data.id;
 
-  this.container.appendChild(item);
+  this.container.appendChild(this.item);
 };
 GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
