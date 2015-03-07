@@ -164,6 +164,8 @@ var Page = function(container){
 
             var detail = new Detail(container,data);
             detail.writeHTML();
+            
+            detail.addClickEvent();
 
       });
     }
