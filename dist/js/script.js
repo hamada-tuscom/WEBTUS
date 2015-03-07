@@ -101,6 +101,8 @@ Detail.prototype.writeHTML = function(){
   this.item.id = 'detail' + this.data.id;
   this.item.style.display = '';
 
+  console.log(this);
+
   this.item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
   this.item.childNodes[3].childNodes[1].setAttribute( "src" , this.data.src );
   this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
