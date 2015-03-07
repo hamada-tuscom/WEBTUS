@@ -62,8 +62,11 @@ GalleryItem.prototype.addClickEvent = function(){
       alert('clicked: ' + that.data.id);
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
         var data = JSON.parse(res);
+        console.log(that);
         that.data.Like = data.Like;
-        that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
+        while(that.item.childNodes[5].childNodes[5].firstChild){
+          that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
+        }
         that.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + that.data.Like ));
         };})(that));
 
