@@ -165,7 +165,7 @@ var Page = function(container){
 
     else{//個別ページの時
 
-      Ajax({"mode":"ReadDetail"},function(res){
+      Ajax({"mode":"ReadDetail", "ID": 1},function(res){
             console.log(res);
 
             var data = JSON.parse(res);
