@@ -105,6 +105,8 @@ Detail.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( this.data.Like ));
   this.item.childNodes[5].childNodes[5].childNodes[3].id = "detailLike"+this.data.id;
 
+  this.item.childNodes[9].id = "form";
+
   while(this.item.childNodes[7].firstChild){
     this.item.childNodes[7].removeChild(this.item.childNodes[7].firstChild);
   }
