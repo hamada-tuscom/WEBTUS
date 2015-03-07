@@ -30,7 +30,7 @@ var Ajax = function(msg,callback){
 
 var GalleryItem = function(container, property){
   this.container = container;
-  this.template = document.getElementsById("itemTemplate");
+  this.template = document.getElementById("itemTemplate");
   this.data={
     "id": property.ID,
     "title": property.title,
