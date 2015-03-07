@@ -53,9 +53,9 @@ GalleryItem.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
   this.item.childNodes[5].childNodes[5].id = "like"+this.data.id;
 
-  while(this.container.firstChild){
-    this.container.removeChild(this.container.firstChild);
-  }
+  // while(this.container.firstChild){
+  //   this.container.removeChild(this.container.firstChild);
+  // }
 
   this.container.appendChild(this.item);
 };
