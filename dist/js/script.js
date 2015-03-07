@@ -177,9 +177,9 @@ var Page = function(container){
           for(i = 0; i < gallery.length; i++){
             gallery[i].addLikeEvent();
           }
-          for(i = 0; i < gallery.length; i++){
+          for(i = 1; i <= gallery.length; i++){
             document.getElementById('item'+i).addEventListener('click',
-              (function(){ return function(){ page.display(i); }; })()
+              (function(k){ return function(){ page.display(k); }; })(i)
             );
           }
       });
