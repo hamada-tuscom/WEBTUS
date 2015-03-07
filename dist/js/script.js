@@ -110,7 +110,7 @@ Detail.prototype.writeHTML = function(){
   }
   this.item.childNodes[7].appendChild(document.createElement("h1")).appendChild(document.createTextNode("コメント"));
   for(var i = 0; i < this.data.comments.length; i++){
-    this.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode(this.data.comments[i]));
+    this.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode(this.data.comments[i].comment));
   }
   while(this.container.firstChild){
     this.container.removeChild(this.container.firstChild);
@@ -120,12 +120,12 @@ Detail.prototype.writeHTML = function(){
 
 };
 Detail.prototype.addClickEvent = function(){
-  console.log(document.getElementById('detailLike'+this.data.id));
   document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
+        console.log("Hello!");
         console.log(res);
 
         var data = JSON.parse(res);
