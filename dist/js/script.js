@@ -60,11 +60,11 @@ GalleryItem.prototype.addClickEvent = function(){
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
-        
+
         console.log(res);
 
         var data = JSON.parse(res);
-        that.data.Like = data.Like;
+        that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
           that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
         }
