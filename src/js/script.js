@@ -59,7 +59,7 @@ GalleryItem.prototype.writeHTML = function(){
 
   this.container.appendChild(this.item);
 };
-GalleryItem.prototype.addClickEvent = function(){
+GalleryItem.prototype.addLikeEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
@@ -71,6 +71,15 @@ GalleryItem.prototype.addClickEvent = function(){
         }
         that.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + that.data.Like ));
         };})(that));
+
+    };})(this)
+  );
+};
+GalleryItem.protorype.addClickEvent = function(){
+  document.getElementById('item' + this.data.id).addEventListener('click',
+    (function(that){ return function(){
+
+      page.display(that.data.id);
 
     };})(this)
   );
@@ -93,7 +102,6 @@ var Detail = function(container, property){
   };
 };
 Detail.prototype.writeHTML = function(){
-
   this.item = this.template.cloneNode(true);
   this.item.id = 'detail' + this.data.id;
   this.item.style.display = '';
@@ -119,12 +127,10 @@ Detail.prototype.writeHTML = function(){
   }
 
   this.container.appendChild(this.item);
-
 };
-Detail.prototype.addClickEvent = function(){
+Detail.prototype.addLikeEvent = function(){
   document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
-
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
         var data = JSON.parse(res);
@@ -134,7 +140,6 @@ Detail.prototype.addClickEvent = function(){
         }
         that.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( that.data.Like ));
         };})(that));
-
     };})(this)
   );
 };
@@ -142,7 +147,6 @@ Detail.prototype.addSubmitEvent = function(){
   console.log(document.getElementById("form").submit);
   document.getElementById("form").submit.addEventListener('click',
     (function(that){ return function(){
-
       Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("form").comment.value},(function(that){return function(res){
         document.getElementById("form").comment.value = "";
 
@@ -156,7 +160,6 @@ Detail.prototype.addSubmitEvent = function(){
           that.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode( that.data.comments[i].comment ));
         }
         };})(that));
-
     };})(this)
   );
 };
@@ -169,7 +172,6 @@ var Page = function(container){
 
     if(Id === undefined){//Galleryページの時
       var gallery = [];
-
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
 
@@ -179,24 +181,22 @@ var Page = function(container){
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
           }
-
           for(i = 0; i < gallery.length; i++){
-            gallery[i].addClickEvent();
+            gallery[i].addLikeEvent();
           }
-
       });
     }
 
     else{//個別ページの時
-
       Ajax({"mode":"ReadDetail", "ID": 1},function(res){
             var data = JSON.parse(res);
             var detail = new Detail(container,data);
             detail.writeHTML();
-            detail.addClickEvent();
+            detail.addLikeEvent();
             detail.addSubmitEvent();
       });
     }
+
   };
 };
 
@@ -205,5 +205,5 @@ function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
-  page.display(2);
+  page.display();
 }
