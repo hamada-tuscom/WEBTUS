@@ -178,8 +178,8 @@ var Page = function(container){
             gallery[i].addLikeEvent();
           }
           for(i = 1; i <= gallery.length; i++){
-            document.getElementById('item'+i).addEventListener('click',
-              (function(k){ return function(){ page.display(k); }; })(i)
+            document.getElementById('item'+1).addEventListener('click',
+              (function(){ return function(){ page.display(1); }; })()
             );
           }
       });
