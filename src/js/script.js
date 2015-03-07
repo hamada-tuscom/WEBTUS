@@ -160,40 +160,40 @@ Detail.prototype.addSubmitEvent = function(){
 
 
 var Page = function(container){
+  this.writeGallery = function(Id){
+    Ajax({"mode":"ReadDetail", "ID": Id},function(res){
+          var data = JSON.parse(res);
+          var detail = new Detail(container,data);
+          detail.writeHTML();
+          detail.addLikeEvent();
+          detail.addSubmitEvent();
+    });
+  };
+  this.writeDetail = function(){
+    Ajax({"mode":"ReadAll"},function(res){
+        var gallery = [];
+        var data = JSON.parse(res);
+        for(var i = 0; i < data.length; i++){
+          gallery[i]= new GalleryItem(container, data[i]);
+        }
+        for(i = 0; i < gallery.length; i++){
+          gallery[i].writeHTML();
+        }
+        for(i = 0; i < gallery.length; i++){
+          gallery[i].addLikeEvent();
+        }
+        for(i = 1; i <= page.gallery.length; i++){
+          document.getElementById('item'+i).addEventListener('click',writeFallery(i));
+        }
+    });
+  };
 
   this.display = function(Id){
-
     if(Id === undefined){//Galleryページの時
-      var gallery = [];
-
-      Ajax({"mode":"ReadAll"},function(res){
-          var data = JSON.parse(res);
-          for(var i = 0; i < data.length; i++){
-            gallery[i]= new GalleryItem(container, data[i]);
-          }
-          for(i = 0; i < gallery.length; i++){
-            gallery[i].writeHTML();
-          }
-          for(i = 0; i < gallery.length; i++){
-            gallery[i].addLikeEvent();
-          }
-          for(i = 1; i <= gallery.length; i++){
-            document.getElementById('item'+i).addEventListener('click',
-              console.log(this)
-            );
-          }
-      });
+      writeGallery();
     }
-
     else{//個別ページの時
-
-      Ajax({"mode":"ReadDetail", "ID": 1},function(res){
-            var data = JSON.parse(res);
-            var detail = new Detail(container,data);
-            detail.writeHTML();
-            detail.addLikeEvent();
-            detail.addSubmitEvent();
-      });
+      writeDetail(Id);
     }
   };
 };
