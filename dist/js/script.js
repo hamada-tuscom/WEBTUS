@@ -136,7 +136,7 @@ Detail.prototype.addClickEvent = function(){
     };})(this)
   );
 };
-Detail.prototype.submitComment = function(){
+Detail.prototype.addSubmitEvent = function(){
   document.getElementById("submit").addEventListener('click',
     (function(that){ return function(){
 
@@ -191,6 +191,7 @@ var Page = function(container){
             var detail = new Detail(container,data);
             detail.writeHTML();
             detail.addClickEvent();
+            detail.addSubmitEvent();
       });
     }
   };
