@@ -179,7 +179,7 @@ var Page = function(container){
           }
           for(i = 1; i <= gallery.length; i++){
             document.getElementById('item'+i).addEventListener('click',
-              (function(){ return function(){ this.display(i); }; })()
+              this.display.bind(i)
             );
           }
       });
