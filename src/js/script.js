@@ -60,7 +60,7 @@ GalleryItem.prototype.writeHTML = function(){
   this.container.appendChild(this.item);
 };
 GalleryItem.prototype.addClickEvent = function(){
-  console.log(document);
+  console.log(document.getElementById);
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
