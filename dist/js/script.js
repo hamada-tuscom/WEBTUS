@@ -137,12 +137,12 @@ Detail.prototype.addClickEvent = function(){
   );
 };
 Detail.prototype.addSubmitEvent = function(){
-  console.log(document.getElementById("submit"));
-  document.getElementById("submit").addEventListener('click',
+  console.log(document.getElementById("form").submit);
+  document.getElementById("form").submit.addEventListener('click',
     (function(that){ return function(){
 
-      Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("comment").value},(function(that){return function(res){
-        document.getElementById("comment").value = "";
+      Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("form").comment.value},(function(that){return function(res){
+        document.getElementById("form").comment.value = "";
         console.log(res);
 
         var data = JSON.parse(res);
