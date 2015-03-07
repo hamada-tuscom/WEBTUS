@@ -148,13 +148,13 @@ Detail.prototype.addSubmitEvent = function(){
 
         var data = JSON.parse(res);
         that.data.comments = data;
-        console.log(data);
         console.log(that.data.comments[2].comment);
         while(that.item.childNodes[7].firstChild){
           that.item.childNodes[7].removeChild(that.item.childNodes[7].firstChild);
         }
+        that.item.childNodes[7].appendChild(document.createElement("h1")).appendChild(document.createTextNode("コメント"));
         for(var i = 0; i < comments.length; i++){
-          that.item.childNodes[7].appendChild(document.createTextNode( that.data.comments[i].comment ));
+          that.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode( that.data.comments[i].comment ));
         }
         };})(that));
 
