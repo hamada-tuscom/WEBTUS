@@ -69,9 +69,9 @@ GalleryItem.prototype.addClickEvent = function(){
   console.log(this.data.id);
   console.log("like"+this.data.id);
   console.log(document.getElementById("like"+this.data.id));
-  document.getElementById('like'+this.data.id).addEventListener('click', function(){
-      alert('clicked: ' + this.data.id);
-    }
+  document.getElementById('like'+this.data.id).addEventListener('click', (function(){
+    return function(id){alert('clicked: ' + id);};
+  })(this.data.id)
   );
 };
 
