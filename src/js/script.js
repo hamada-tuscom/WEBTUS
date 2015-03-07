@@ -75,7 +75,7 @@ GalleryItem.prototype.addLikeEvent = function(){
     };})(this)
   );
 };
-GalleryItem.protorype.addClickEvent = function(){
+GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('item' + this.data.id).addEventListener('click',
     (function(that){ return function(){
 
