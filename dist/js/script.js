@@ -1,8 +1,5 @@
 window.addEventListener("load", main);
 
-
-function main(){
-
 function EncodeHTMLForm(data){
   var params = [];
   for(var name in data){
@@ -175,7 +172,7 @@ var Page = function(container){
 
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
-console.log(res);
+console.log(data);
           for(var i = 0; i < data.length; i++){
             gallery[i]= new GalleryItem(container,data[i]);
           }
@@ -204,6 +201,7 @@ console.log(res);
 };
 
 
+function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
