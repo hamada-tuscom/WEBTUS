@@ -41,7 +41,7 @@ var GalleryItem = function(container, property){
   };
 };
 GalleryItem.prototype.writeHTML = function(){
-  var item = this.template.cloneNode(ture);
+  var item = this.template.cloneNode(true);
   item.id = 'item' + this.data.id;
   item.style.display = '';
 
