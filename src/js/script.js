@@ -77,7 +77,6 @@ GalleryItem.prototype.addClickEvent = function(){
 };
 
 
-
 var Detail = function(container, property){
   this.container = container;
   this.template = document.getElementById("detailTemplate");
@@ -94,6 +93,7 @@ var Detail = function(container, property){
   };
 };
 Detail.prototype.writeHTML = function(){
+
   this.item = this.template.cloneNode(true);
   this.item.id = 'detail' + this.data.id;
   this.item.style.display = '';
@@ -119,10 +119,12 @@ Detail.prototype.writeHTML = function(){
   }
 
   this.container.appendChild(this.item);
+
 };
 Detail.prototype.addClickEvent = function(){
   document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
+
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
         var data = JSON.parse(res);
@@ -132,6 +134,7 @@ Detail.prototype.addClickEvent = function(){
         }
         that.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( that.data.Like ));
         };})(that));
+
     };})(this)
   );
 };
@@ -139,6 +142,7 @@ Detail.prototype.addSubmitEvent = function(){
   console.log(document.getElementById("form").submit);
   document.getElementById("form").submit.addEventListener('click',
     (function(that){ return function(){
+
       Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("form").comment.value},(function(that){return function(res){
         document.getElementById("form").comment.value = "";
 
@@ -152,6 +156,7 @@ Detail.prototype.addSubmitEvent = function(){
           that.item.childNodes[7].appendChild(document.createElement("section")).appendChild(document.createTextNode( that.data.comments[i].comment ));
         }
         };})(that));
+
     };})(this)
   );
 };
@@ -164,22 +169,26 @@ var Page = function(container){
 
     if(Id === undefined){//Galleryページの時
       var gallery = [];
+
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
-
+console.log(res);
           for(var i = 0; i < data.length; i++){
             gallery[i]= new GalleryItem(container,data[i]);
           }
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
           }
+
           for(i = 0; i < gallery.length; i++){
             gallery[i].addClickEvent();
           }
+
       });
     }
 
     else{//個別ページの時
+
       Ajax({"mode":"ReadDetail", "ID": 1},function(res){
             var data = JSON.parse(res);
             var detail = new Detail(container,data);
@@ -188,7 +197,6 @@ var Page = function(container){
             detail.addSubmitEvent();
       });
     }
-
   };
 };
 
@@ -197,5 +205,5 @@ function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
-  page.display();
+  page.display(2);
 }
