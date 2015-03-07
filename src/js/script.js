@@ -153,7 +153,7 @@ Detail.prototype.addSubmitEvent = function(){
           that.item.childNodes[7].removeChild(that.item.childNodes[7].firstChild);
         }
         for(var i = 0; i < comments.length; i++){
-          that.item.childNodes[7].appendChild(document.createTextNode( that.data.comments[i] ));
+          that.item.childNodes[7].appendChild(document.createTextNode( that.data.comments[i].comment ));
         }
         };})(that));
 
