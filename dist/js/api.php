@@ -158,7 +158,7 @@ function method_Submit(){
   $comment = param("comment");
   $id = param("ID");
 
-  $stmt = $pdo -> Prepare("insert into Cemments (prod_id,cemment) values (?,?)");
+  $stmt = $pdo -> Prepare("insert into Comments (prod_id,cemment) values (?,?)");
   try{
     $stmt->execute(array($id,$comment));
   }catch(PDOException $e ){
