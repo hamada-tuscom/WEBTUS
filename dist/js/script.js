@@ -60,7 +60,8 @@ GalleryItem.prototype.writeHTML = function(){
   this.container.appendChild(this.item);
 };
 GalleryItem.prototype.addClickEvent = function(){
-  console.log(document.getElementById);
+  console.log('like'+this.data.id);
+  console.log(this.item.childNodes[5].childNodes[5].id);
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
@@ -173,7 +174,6 @@ var Page = function(container){
 
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
-console.log(data);
           for(var i = 0; i < data.length; i++){
             gallery[i]= new GalleryItem(container,data[i]);
           }
