@@ -30,7 +30,6 @@ var Ajax = function(msg,callback){
 
 var GalleryItem = function(container, property){
   this.container = container;
-  this.like = undefined;
   this.data={
     "id": property.ID,
     "title": property.title,
@@ -52,8 +51,7 @@ GalleryItem.prototype.writeHTML = function(){
   '</article>'].join("\n");
 };
 GalleryItem.prototype.addClickEvent = function(){
-  this.like = document.getElementById('like'+this.data.id);
-  this.like.addEventListener('click', function(){
+  document.getElementById('like'+this.data.id).addEventListener('click', function(){
       alert('clicked: ' + this.data.id);
     }
   );
