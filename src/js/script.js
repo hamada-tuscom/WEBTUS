@@ -20,6 +20,7 @@ var Ajax = function(msg,callback){
     }
     else if(this.readyState === 4 && this.status !== 200){
       console.log(this.status);
+      console.log("Hello!");
     }
   };
   xhr.open('POST', 'js/api.php');
@@ -125,7 +126,6 @@ Detail.prototype.addClickEvent = function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
-        console.log("Hello!");
         console.log(res);
 
         var data = JSON.parse(res);
