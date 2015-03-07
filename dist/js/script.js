@@ -57,7 +57,7 @@ GalleryItem.prototype.writeHTML = function(){
 };
 GalleryItem.prototype.addClickEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
-    (function(){ return function(that){
+    (function(that){ return function(that){
 
       alert('clicked: ' + that.data.id);
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
