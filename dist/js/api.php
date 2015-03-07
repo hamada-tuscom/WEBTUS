@@ -9,6 +9,7 @@ switch($m){
   case "Write": method_Write();break;
   case "ReadAll":method_ReadAll();break;
   case "ReadDetail":method_ReadDetail();break;
+  case "ReadComment";method_ReadComment();break;
   case "Submit":method_Submit();break;
   default :errorJSON("no method"); break;
 }
@@ -42,7 +43,7 @@ function method_CountGood(){
 
   $goodCount = array();
   foreach($a as $r){
-    $goodCount [] = array("Like"=>$r["GoofCount"]);
+    $goodCount [] = array("Like"=>$r["GoodCount"]);
 
   }
   echo json_encode($goodCount);
@@ -54,6 +55,25 @@ function method_CountGood(){
 function method_Write(){
   echo "write";
 }
+
+
+function method_ReadComment(){
+  $pdo = GetDB();
+  $id = param("ID");
+  $stmt = $pdo ->Preapre("select Comment from Comment where prod_id = ?");
+  $stmt->execute(array($id));
+  $a = $stmt->fetchAll();
+
+$comments = array();
+foreach($a as $r){
+  $comments[] = ["comment" =>$r["Comment"]];
+
+}
+json_encode($comments);
+
+}
+
+
 function method_ReadAll(){
   $pdo = GetDB();
 
