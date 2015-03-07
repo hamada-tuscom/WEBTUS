@@ -160,7 +160,7 @@ Detail.prototype.addSubmitEvent = function(){
 
 
 var Page = function(container){
-  this.writeGallery = function(Id){
+  var writeGallery = function(Id){
     Ajax({"mode":"ReadDetail", "ID": Id},function(res){
           var data = JSON.parse(res);
           var detail = new Detail(container,data);
@@ -169,8 +169,7 @@ var Page = function(container){
           detail.addSubmitEvent();
     });
   };
-  this.writeDetail = function(that){
-    Ajax({"mode":"ReadAll"},function(res){
+  var writeDetail = Ajax({"mode":"ReadAll"},function(res){
         var gallery = [];
         var data = JSON.parse(res);
         for(var i = 0; i < data.length; i++){
@@ -183,10 +182,9 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= page.gallery.length; i++){
-          document.getElementById('item'+i).addEventListener('click',that.writeGallery(i));
+          document.getElementById('item'+i).addEventListener('click',writeGallery(i));
         }
-    }).bind(this);
-  };
+    });
 
   this.display = function(Id){
     if(Id === undefined){//Galleryページの時
@@ -196,7 +194,9 @@ var Page = function(container){
       writeDetail(Id);
     }
   };
+  
 };
+
 
 
 function main(){
