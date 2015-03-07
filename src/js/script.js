@@ -64,9 +64,6 @@ GalleryItem.prototype.addClickEvent = function(){
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
-
-        console.log(res);
-
         var data = JSON.parse(res);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
@@ -101,8 +98,6 @@ Detail.prototype.writeHTML = function(){
   this.item.id = 'detail' + this.data.id;
   this.item.style.display = '';
 
-  console.log(this);
-
   this.item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
   this.item.childNodes[3].childNodes[1].setAttribute( "src" , this.data.src );
   this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
@@ -118,7 +113,7 @@ Detail.prototype.writeHTML = function(){
 
 };
 Detail.prototype.addClickEvent = function(){
-  document.getElementById('datailLike'+this.data.id).addEventListener('click',
+  document.getElementById('datalLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
