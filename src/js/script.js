@@ -53,15 +53,9 @@ GalleryItem.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
   this.item.childNodes[5].childNodes[5].id = "like"+this.data.id;
 
-  // while(this.container.firstChild){
-  //   this.container.removeChild(this.container.firstChild);
-  // }
-
   this.container.appendChild(this.item);
 };
-GalleryItem.prototype.addClickEvent = function(){
-  console.log('like'+this.data.id);
-  console.log(this.item.childNodes[5].childNodes[5].id);
+GalleryItem.prototype.addLikeEvent = function(){
   document.getElementById('like'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
@@ -73,6 +67,15 @@ GalleryItem.prototype.addClickEvent = function(){
         }
         that.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + that.data.Like ));
         };})(that));
+
+    };})(this)
+  );
+};
+GalleryItem.prototype.addClickEvent = function(){
+  document.getElementById('item'+this.data.id).addEventListener('click',
+    (function(that){ return function(){
+
+      page.display(that.data.id);
 
     };})(this)
   );
@@ -123,7 +126,7 @@ Detail.prototype.writeHTML = function(){
   this.container.appendChild(this.item);
 
 };
-Detail.prototype.addClickEvent = function(){
+Detail.prototype.addLikeEvent = function(){
   document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
@@ -180,11 +183,12 @@ var Page = function(container){
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
           }
-
+          for(i = 0; i < gallery.length; i++){
+            gallery[i].addLikeEvent();
+          }
           for(i = 0; i < gallery.length; i++){
             gallery[i].addClickEvent();
           }
-
       });
     }
 
@@ -194,7 +198,7 @@ var Page = function(container){
             var data = JSON.parse(res);
             var detail = new Detail(container,data);
             detail.writeHTML();
-            detail.addClickEvent();
+            detail.addLikeEvent();
             detail.addSubmitEvent();
       });
     }
