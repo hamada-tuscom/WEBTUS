@@ -20,7 +20,6 @@ var Ajax = function(msg,callback){
     }
     else if(this.readyState === 4 && this.status !== 200){
       console.log(this.status);
-      console.log("Hello!");
     }
   };
   xhr.open('POST', 'js/api.php');
@@ -126,14 +125,33 @@ Detail.prototype.addClickEvent = function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
-        console.log(res);
-
         var data = JSON.parse(res);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild){
           that.item.childNodes[5].childNodes[5].childNodes[1].removeChild(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild);
         }
         that.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( that.data.Like ));
+        };})(that));
+
+    };})(this)
+  );
+};
+Detail.prototype.submitComment = function(){
+  document.getElementById("form").addEventListener('click',
+    (function(that){ return function(){
+
+      Ajax({"mode":"Submit", "ID":that.data.id, "comment": document.getElementById("comment").value},(function(that){return function(res){
+        document.getElementById("comment").value = "";
+        console.log(res);
+
+        var data = JSON.parse(res);
+        that.data.comments = data;
+        while(that.item.childNodes[7].firstChild){
+          that.item.childNodes[7].removeChild(that.item.childNodes[7].firstChild);
+        }
+        for(var i = 0; i < comments.length; i++){
+          that.item.childNodes[7].appendChild(document.createTextNode( that.data.comments[i] ));
+        }
         };})(that));
 
     };})(this)
@@ -170,12 +188,9 @@ var Page = function(container){
 
       Ajax({"mode":"ReadDetail", "ID": 1},function(res){
             var data = JSON.parse(res);
-
             var detail = new Detail(container,data);
             detail.writeHTML();
-
             detail.addClickEvent();
-
       });
     }
   };
