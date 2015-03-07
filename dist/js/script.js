@@ -61,6 +61,7 @@ GalleryItem.prototype.addLikeEvent = function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
         var data = JSON.parse(res);
+        console.log(data);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
           that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
@@ -135,7 +136,6 @@ Detail.prototype.addLikeEvent = function(){
   );
 };
 Detail.prototype.addSubmitEvent = function(){
-  console.log(document.getElementById("form").submit);
   document.getElementById("form").submit.addEventListener('click',
     (function(that){ return function(){
 
@@ -181,7 +181,7 @@ var Page = function(container){
         for(i = 0; i < gallery.length; i++){
           gallery[i].addLikeEvent();
         }
-        for(i = 1; i <= page.gallery.length; i++){
+        for(i = 1; i <= gallery.length; i++){
           document.getElementById('item'+i).addEventListener('click',writeGallery(i));
         }
     });
@@ -194,7 +194,7 @@ var Page = function(container){
       writeDetail(Id);
     }
   };
-  
+
 };
 
 
