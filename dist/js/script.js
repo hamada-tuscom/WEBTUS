@@ -51,7 +51,7 @@ GalleryItem.prototype.writeHTML = function(){
     '</section>',
   '</article>'].join("\n");
 };
-GalleryItem.prototype.addEventListener = function(){
+GalleryItem.prototype.addClickEvent = function(){
   this.like = document.getElementById('like'+this.data.id);
   this.like.addEventListener('click', function(){
       alert('clicked: ' + this.data.id);
@@ -106,7 +106,7 @@ var Page = function(container){
           }
 
           for(i = 0; i < gallery.length; i++){
-            gallery[i].addEventListener();
+            gallery[i].addClickEvent();
           }
 
       });
