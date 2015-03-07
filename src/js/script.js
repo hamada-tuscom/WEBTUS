@@ -28,10 +28,8 @@ var Ajax = function(msg,callback){
 };
 
 
-var GalleryItem = function(container, page, property){
+var GalleryItem = function(container, property){
   this.container = container;
-  this.page = page;
-  console.log(page);
   this.template = document.getElementById("itemTemplate");
   this.item = undefined;
   this.data={
@@ -69,15 +67,6 @@ GalleryItem.prototype.addLikeEvent = function(){
         }
         that.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + that.data.Like ));
         };})(that));
-
-    };})(this)
-  );
-};
-GalleryItem.prototype.addClickEvent = function(){
-  document.getElementById('item'+this.data.id).addEventListener('click',
-    (function(that){ return function(){
-
-      that.page.display(that.data.id);
 
     };})(this)
   );
@@ -180,7 +169,7 @@ var Page = function(container){
       Ajax({"mode":"ReadAll"},function(res){
           var data = JSON.parse(res);
           for(var i = 0; i < data.length; i++){
-            gallery[i]= new GalleryItem(container, this, data[i]);
+            gallery[i]= new GalleryItem(container, data[i]);
           }
           for(i = 0; i < gallery.length; i++){
             gallery[i].writeHTML();
@@ -189,7 +178,9 @@ var Page = function(container){
             gallery[i].addLikeEvent();
           }
           for(i = 0; i < gallery.length; i++){
-            gallery[i].addClickEvent();
+            document.getElementById('item'+i).addEventListener('click',
+              (function(){ return function(){ page.display(i); }; })()
+            );
           }
       });
     }
