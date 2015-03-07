@@ -103,7 +103,7 @@ Detail.prototype.writeHTML = function(){
   this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
   this.item.childNodes[5].childNodes[3].childNodes[3].appendChild(document.createTextNode( this.data.description ));
   this.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( this.data.Like ));
-  this.item.childNodes[5].childNodes[5].id = "detailLike"+this.data.id;
+  this.item.childNodes[5].childNodes[5].childNodes[3].id = "detailLike"+this.data.id;
 
   while(this.container.firstChild){
     this.container.removeChild(this.container.firstChild);
@@ -113,7 +113,8 @@ Detail.prototype.writeHTML = function(){
 
 };
 Detail.prototype.addClickEvent = function(){
-  document.getElementById('datalLike'+this.data.id).addEventListener('click',
+  console.log(document.getElementById('detailLike'+this.data.id));
+  document.getElementById('detailLike'+this.data.id).addEventListener('click',
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
