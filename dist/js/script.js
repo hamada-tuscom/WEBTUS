@@ -1,5 +1,8 @@
 window.addEventListener("load", main);
 
+
+function main(){
+
 function EncodeHTMLForm(data){
   var params = [];
   for(var name in data){
@@ -201,7 +204,6 @@ console.log(res);
 };
 
 
-function main(){
   var container = document.getElementById("container");
 
   var page = new Page(container);
