@@ -105,6 +105,8 @@ Detail.prototype.writeHTML = function(){
 
   this.item.childNodes[9].id = "form";
 
+  this.item.childNodes[9].id = "delete";
+
   while(this.item.childNodes[7].firstChild){
     this.item.childNodes[7].removeChild(this.item.childNodes[7].firstChild);
   }
@@ -124,8 +126,6 @@ Detail.prototype.addLikeEvent = function(){
     (function(that){ return function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
-
-            console.log(res);
 
         var data = JSON.parse(res);
         that.data.Like = data[0].Like;
@@ -159,6 +159,17 @@ Detail.prototype.addSubmitEvent = function(){
     };})(this)
   );
 };
+Detail.prototype.addDeleteEvent = function(){
+  document.getElementById("delete").submit.addEventListener('click',
+    (function(that){ return function(){
+
+      Ajax({"mode":"Delete", "ID":that.data.id, "Delete": document.getElementById("delete").delete.value},(function(that){return function(res){
+          console.log(res);
+        };})(that));
+
+    };})(this)
+  );
+};
 
 
 
@@ -170,6 +181,7 @@ var Page = function(container){
           detail.writeHTML();
           detail.addLikeEvent();
           detail.addSubmitEvent();
+          detail.addDeleteEvent();
     });
   };
   var writeGallery = function(){
