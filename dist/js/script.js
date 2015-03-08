@@ -125,6 +125,7 @@ Detail.prototype.addLikeEvent = function(){
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
         var data = JSON.parse(res);
+        console.log(data);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild){
           that.item.childNodes[5].childNodes[5].childNodes[1].removeChild(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild);
@@ -182,7 +183,8 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= gallery.length; i++){
-          document.getElementById('item'+i).addEventListener('click',function(){writeGallery(i)});
+          document.getElementById('item'+i).addEventListener('click',
+          (function(k){ return function(){writeGallery(k)}; })(i));
         }
     });
 
