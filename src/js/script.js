@@ -200,7 +200,7 @@ var Page = function(container){
         for(i = 0; i < gallery.length; i++){
           gallery[i].addLikeEvent();
         }
-        for(i = 1; i <= gallery.length; i++){
+        for(i = 0; i < gallery.length; i++){
           document.getElementById('item'+gallery[i].data.id).childNodes[1].addEventListener('click',
             (function(k){ return function(){writeDetail(k);}; })(gallery[i].data.id));
         }
