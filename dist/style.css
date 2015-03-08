@@ -91,13 +91,17 @@ header {
       right: 5%;
       padding: 2px;
       border-radius: 4px;
-      background-color: #aa3;
-      color: #def;
+      background-color: #ce0;
+      color: #422;
       box-sizing: border-box;
       box-shadow: 1px 2px 3px 1px rgba(0, 0, 50, 0.3);
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      transition-property: background-color;
+      transition-duration: .3s;
+      transition-timing-function: ease-out; }
       .galleryItem section .like:hover {
-        cursor: pointer; }
+        cursor: pointer;
+        background-color: #f92; }
 
 @keyframes slidein {
   from {
@@ -119,7 +123,10 @@ header {
   margin-bottom: 10px;
   display: table;
   padding-bottom: 15px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5); }
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+  animation-duration: 0.8s;
+  animation-name: slidein;
+  animation-iteration-count: 1; }
   .detail h1 {
     background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
     background-size: 20px 20px;
@@ -186,25 +193,36 @@ header {
       font-size: 20px;
       padding: 5px;
       border-radius: 4px;
-      background-color: #aa3;
+      background-color: #ce0;
       padding-left: 10px;
-      color: #def;
+      color: #422;
+      transition-property: background-color;
+      transition-duration: .3s;
+      transition-timing-function: ease-out;
       box-shadow: 0 0 5px 0 rgba(0, 0, 50, 0.5);
       box-sizing: border-box; }
+      .detail #description .like:hover {
+        background-color: #f92; }
+        .detail #description .like:hover div {
+          background-color: #f92; }
       .detail #description .like > div {
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: #aa3;
+        background-color: #ce0;
+        transition-property: background-color;
+        transition-duration: .3s;
+        transition-timing-function: ease-out;
         border-radius: 50%;
-        top: -10px;
-        right: -10px;
+        top: -13px;
+        right: -30px;
         box-sizing: border-box;
         padding-top: 10px;
-        color: #def;
+        color: #422;
         box-shadow: 0 5px 5px 0 rgba(0, 0, 50, 0.5); }
         .detail #description .like > div:hover {
-          cursor: pointer; }
+          cursor: pointer;
+          background-color: #f92; }
   .detail #comments {
     display: table-row; }
     .detail #comments h1, .detail #comments section {
@@ -251,6 +269,16 @@ header {
       height: 3rem;
       padding: 10px;
       border-radius: 20px; }
+  .detail #delete {
+    text-align: right;
+    width: 80%;
+    margin: 30px auto 5px auto; }
+    .detail #delete input[type="text"] {
+      position: relative;
+      width: 20%; }
+    .detail #delete input[type="button"] {
+      width: 10%;
+      color: #443; }
 
 footer {
   background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
