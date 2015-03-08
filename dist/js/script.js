@@ -177,6 +177,9 @@ var Page = function(container){
         for(var i = 0; i < data.length; i++){
           gallery[i]= new GalleryItem(container, data[i]);
         }
+        while(this.container.firstChild){
+          this.container.removeChild(this.container.firstChild);
+        }
         for(i = 0; i < gallery.length; i++){
           gallery[i].writeHTML();
         }
