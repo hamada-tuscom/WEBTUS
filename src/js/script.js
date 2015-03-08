@@ -187,7 +187,7 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= gallery.length; i++){
-          document.getElementById('item'+i).h1.addEventListener('click',
+          document.getElementById('item'+i).childNode[1].addEventListener('click',
             (function(k){ return function(){writeDetail(k);}; })(i));
         }
     });
