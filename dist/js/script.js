@@ -123,6 +123,8 @@ Detail.prototype.addLikeEvent = function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
+            console.log(res);
+
         var data = JSON.parse(res);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild){
@@ -161,8 +163,6 @@ Detail.prototype.addSubmitEvent = function(){
 var Page = function(container){
   var writeDetail = function(Id){
     Ajax({"mode":"ReadDetail", "ID": Id},function(res){
-        console.log(res);
-
           var data = JSON.parse(res);
           var detail = new Detail(container,data);
           detail.writeHTML();
@@ -208,5 +208,7 @@ function main(){
 
   var page = new Page(container);
   page.display();
+  var header = document.getElementById("header");
+  header.addEventListener("click",page.display);
 
 }
