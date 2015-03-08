@@ -206,6 +206,5 @@ function main(){
 
   var page = new Page(container);
   page.display();
-  // var header = document.getElementById("header");
-  // header.addEventListener("click",page.display);
+  
 }
