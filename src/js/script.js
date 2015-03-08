@@ -160,7 +160,7 @@ Detail.prototype.addSubmitEvent = function(){
 
 
 var Page = function(container){
-  var writeGallery = function(Id){
+  var writeDetail = function(Id){
     Ajax({"mode":"ReadDetail", "ID": Id},function(res){
           var data = JSON.parse(res);
           var detail = new Detail(container,data);
@@ -169,7 +169,7 @@ var Page = function(container){
           detail.addSubmitEvent();
     });
   };
-  var writeDetail = Ajax({"mode":"ReadAll"},function(res){
+  var writeGallery = Ajax({"mode":"ReadAll"},function(res){
         var gallery = [];
         var data = JSON.parse(res);
         for(var i = 0; i < data.length; i++){
