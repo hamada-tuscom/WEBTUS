@@ -201,8 +201,8 @@ var Page = function(container){
           gallery[i].addLikeEvent();
         }
         for(i = 1; i <= gallery.length; i++){
-          document.getElementById('item'+i).childNodes[1].addEventListener('click',
-            (function(k){ return function(){writeDetail(k);}; })(i));
+          document.getElementById('item'+gallery[i].data.id).childNodes[1].addEventListener('click',
+            (function(k){ return function(){writeDetail(k);}; })(gallery[i].data.id));
         }
     });
   };
