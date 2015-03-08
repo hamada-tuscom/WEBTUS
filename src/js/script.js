@@ -61,7 +61,6 @@ GalleryItem.prototype.addLikeEvent = function(){
 
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
         var data = JSON.parse(res);
-        console.log(data);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].firstChild){
           that.item.childNodes[5].childNodes[5].removeChild(that.item.childNodes[5].childNodes[5].firstChild);
@@ -125,7 +124,6 @@ Detail.prototype.addLikeEvent = function(){
       Ajax({"mode":"Like","ID":that.data.id},(function(that){return function(res){
 
         var data = JSON.parse(res);
-        console.log(data);
         that.data.Like = data[0].Like;
         while(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild){
           that.item.childNodes[5].childNodes[5].childNodes[1].removeChild(that.item.childNodes[5].childNodes[5].childNodes[1].firstChild);
@@ -170,7 +168,8 @@ var Page = function(container){
           detail.addSubmitEvent();
     });
   };
-  var writeGallery = Ajax({"mode":"ReadAll"},function(res){
+  var writeGallery = function(){
+    Ajax({"mode":"ReadAll"},function(res){
         var gallery = [];
         var data = JSON.parse(res);
         for(var i = 0; i < data.length; i++){
@@ -184,9 +183,10 @@ var Page = function(container){
         }
         for(i = 1; i <= gallery.length; i++){
           document.getElementById('item'+i).addEventListener('click',
-          (function(k){ return function(){writeGallery(k)}; })(i));
+          (function(k){ return function(){writeDetail(k);}; })(i));
         }
     });
+  };
 
   this.display = function(Id){
     if(Id > 0){//個別ページの時
