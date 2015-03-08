@@ -161,6 +161,8 @@ Detail.prototype.addSubmitEvent = function(){
 var Page = function(container){
   var writeDetail = function(Id){
     Ajax({"mode":"ReadDetail", "ID": Id},function(res){
+        console.log(res);
+
           var data = JSON.parse(res);
           var detail = new Detail(container,data);
           detail.writeHTML();
@@ -206,5 +208,5 @@ function main(){
 
   var page = new Page(container);
   page.display();
-  
+
 }
