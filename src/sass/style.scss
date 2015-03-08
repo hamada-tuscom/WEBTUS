@@ -6,6 +6,7 @@ $itemBase: #cde;
 $like: #aa3;
 
 $back: #bcd;
+$back2: #789;
 
 $char: #def;
 
@@ -16,11 +17,13 @@ $char: #def;
 
 html, body{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 body{
-  background-color: $back;
+  background-image: url("./img/noise.png"),
+  url("./img/noise.png"),
+                    radial-gradient($back, $back2);
 }
 @keyframes head {
   from {
@@ -38,7 +41,8 @@ header{
   width: 100%;
   padding: 10px;
   box-shadow:0 5px 2px 2px rgba(0,0,0,.5),
-              0 15px 0 0 $H1 inset;
+              0 15px 0 0 $H1 inset,
+              0 -5px 0 0 $H1 inset;
   position: fixed;
   z-index:1;
   height: 60px;
@@ -105,7 +109,8 @@ header{
 
     width: 100%;
 
-    box-shadow: 0 10px 0 0 $H1 inset;
+    box-shadow: 0 10px 0 0 $H1 inset,
+                0 -3px 0 0 $H1 inset;
 
     &:hover{
       cursor: pointer;
@@ -181,7 +186,8 @@ header{
     background:url("./img/noise.png") ,
           linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
     background-size: 20px 20px;
-    box-shadow: 0 10px 0 0 $H1 inset;
+    box-shadow: 0 10px 0 0 $H1 inset,
+                0 -5px 0 0 $H1 inset;
 
     color: $char;
     width: 100%;
@@ -379,7 +385,8 @@ footer{
   width: 100%;
   padding: 10px;
   box-shadow:0 0 5px 0 rgba(0,0,0,.5),
-            0 -10px 0 0 $H1 inset;
+            0 -10px 0 0 $H1 inset,
+            0 3px 0 0 $H1 inset;
 
   position: fixed;
   bottom: 0;
