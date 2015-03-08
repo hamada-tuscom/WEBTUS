@@ -187,11 +187,11 @@ var Page = function(container){
     });
 
   this.display = function(Id){
-    if(Id === undefined){//Galleryページの時
-      writeGallery();
-    }
-    else{//個別ページの時
+    if(Id > 0){//個別ページの時
       writeDetail(Id);
+    }
+    else{//Galleryページの時
+      writeGallery();
     }
   };
 
