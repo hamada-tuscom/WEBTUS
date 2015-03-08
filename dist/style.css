@@ -8,14 +8,15 @@ html, body {
   height: 100%; }
 
 body {
-  background-color: #def; }
+  background-color: #bcd; }
 
 header {
-  background: url("./img/noise.png"), linear-gradient(0deg, #006DC3 0%, #10426A 200%);
+  background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
+  background-size: 20px 20px;
   color: #def;
   width: 100%;
   padding: 10px;
-  box-shadow: 0 5px 2px 0 rgba(0, 0, 0, 0.5), 0 15px 0 0 #10426A inset;
+  box-shadow: 0 5px 2px 2px rgba(0, 0, 0, 0.5), 0 15px 0 0 #20324A inset;
   position: fixed;
   z-index: 1;
   height: 60px;
@@ -40,28 +41,30 @@ header {
   width: 240px;
   margin: 5px;
   margin-top: 10px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
   display: table;
   text-align: center;
   flex-grow: 0;
   font-family: "メイリオ";
+  border-radius: 3px;
   animation-duration: 0.8s;
   animation-name: slidein;
   animation-iteration-count: 1; }
   .galleryItem h1 {
-    background: url("./img/noise.png"), linear-gradient(0deg, #006DC3 0%, #10426A 200%);
+    background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
+    background-size: 20px 20px;
     color: #def;
     font-size: 1.4rem;
     display: table-row;
     height: 1.4rem;
     width: 100%;
-    box-shadow: 0 10px 0 0 #10426A inset; }
+    box-shadow: 0 10px 0 0 #20324A inset; }
     .galleryItem h1:hover {
       cursor: pointer; }
   .galleryItem img {
     width: 90%;
     margin: 5px;
-    display: table-cell; }
+    display: table-row; }
   .galleryItem section {
     position: relative; }
     .galleryItem section p {
@@ -73,7 +76,7 @@ header {
       right: 5%;
       padding: 2px;
       border-radius: 4px;
-      background-color: #10426A;
+      background-color: #aa3;
       color: #def;
       box-sizing: border-box;
       box-shadow: 1px 2px 3px 1px rgba(0, 0, 50, 0.3);
@@ -83,11 +86,11 @@ header {
 
 @keyframes slidein {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px) scale(.95, .9);
     opacity: 0; }
 
   to {
-    transform: translateY(0);
+    transform: translateY(0) scale(1, 1);
     opacity: 1; } }
 
 .detail {
@@ -103,8 +106,9 @@ header {
   padding-bottom: 15px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5); }
   .detail h1 {
-    background: url("./img/noise.png"), linear-gradient(0deg, #006DC3 0%, #10426A 200%);
-    box-shadow: 0 10px 0 0 #10426A inset;
+    background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
+    background-size: 20px 20px;
+    box-shadow: 0 10px 0 0 #20324A inset;
     color: #def;
     width: 100%;
     height: 4rem;
@@ -146,7 +150,7 @@ header {
       font-size: 20px;
       padding: 5px;
       border-radius: 4px;
-      background-color: #10426A;
+      background-color: #aa3;
       padding-left: 10px;
       color: #def;
       box-shadow: 0 0 5px 0 rgba(0, 0, 50, 0.5);
@@ -155,7 +159,7 @@ header {
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: #10426A;
+        background-color: #aa3;
         border-radius: 50%;
         top: -10px;
         right: -10px;
@@ -183,11 +187,12 @@ header {
       box-shadow: 2px 2px 2px 0 rgba(0, 0, 50, 0.1); }
 
 footer {
-  background: url("./img/noise.png"), linear-gradient(0deg, #006DC3 0%, #10426A 200%);
+  background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);
+  background-size: 20px 20px;
   color: #def;
   width: 100%;
   padding: 10px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5), 0 -10px 0 0 #10426A inset;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5), 0 -10px 0 0 #20324A inset;
   position: fixed;
   bottom: 0;
   z-index: 1; }

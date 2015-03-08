@@ -1,8 +1,13 @@
-$darkblue: #10426A;
-$blue: #006DC3;
+$H1: #20324A;
+$H2: #334;
+$H3: #443;
 $itemBase: #cde;
 
-$white: #def;
+$like: #aa3;
+
+$back: #bcd;
+
+$char: #def;
 
 *{
   margin: 0;
@@ -15,17 +20,18 @@ html, body{
 }
 
 body{
-  background-color: $white;
+  background-color: $back;
 }
 
 header{
   background:url("./img/noise.png") ,
-          linear-gradient(0deg, $blue 0%, $darkblue 200%);
-  color: $white;
+        linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
+  background-size: 20px 20px;
+  color: $char;
   width: 100%;
   padding: 10px;
-  box-shadow:0 5px 2px 0 rgba(0,0,0,.5),
-              0 15px 0 0 $darkblue inset;
+  box-shadow:0 5px 2px 2px rgba(0,0,0,.5),
+              0 15px 0 0 $H1 inset;
   position: fixed;
   z-index:1;
   height: 60px;
@@ -60,7 +66,7 @@ header{
 
   margin: 5px;
   margin-top: 10px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
 
   display: table;
   text-align: center;
@@ -69,6 +75,8 @@ header{
 
   font-family: "メイリオ";
 
+  border-radius: 3px;
+
 
   animation-duration: 0.8s;
   animation-name: slidein;
@@ -76,15 +84,16 @@ header{
 
   h1{
     background:url("./img/noise.png") ,
-            linear-gradient(0deg, $blue 0%, $darkblue 200%);
-    color: $white;
+          linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
+    background-size: 20px 20px;
+    color: $char;
     font-size: 1.4rem;
     display: table-row;
     height: 1.4rem;
 
     width: 100%;
 
-    box-shadow: 0 10px 0 0 $darkblue inset;
+    box-shadow: 0 10px 0 0 $H1 inset;
 
     &:hover{
       cursor: pointer;
@@ -94,7 +103,7 @@ header{
   img{
     width: 90%;
     margin: 5px;
-    display: table-cell;
+    display: table-row;
   }
 
   section{
@@ -111,8 +120,8 @@ header{
       right: 5%;
       padding: 2px;
       border-radius: 4px;
-      background-color: $darkblue;
-      color: $white;
+      background-color: $like;
+      color: $char;
       box-sizing: border-box;
       box-shadow: 1px 2px 3px 1px rgba(0,0,50,.3);
       font-size: 0.8rem;
@@ -126,12 +135,12 @@ header{
 }
 @keyframes slidein {
   from {
-    transform: translateY(50px);
+    transform: translateY(30px) scale(.95,.9);
     opacity: 0;
   }
 
   to {
-    transform: translateY(0);
+    transform: translateY(0) scale(1,1);
     opacity: 1;
   }
 }
@@ -153,10 +162,11 @@ header{
 
   h1{
     background:url("./img/noise.png") ,
-            linear-gradient(0deg, $blue 0%, $darkblue 200%);
-            box-shadow: 0 10px 0 0 $darkblue inset;
+          linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
+    background-size: 20px 20px;
+    box-shadow: 0 10px 0 0 $H1 inset;
 
-    color: $white;
+    color: $char;
     width: 100%;
     height: 4rem;
     padding: 20px;
@@ -220,11 +230,11 @@ header{
 
       border-radius: 4px;
 
-      background-color: $darkblue;
+      background-color: $like;
 
       padding-left:10px;
 
-      color: $white;
+      color: $char;
 
 
       box-shadow: 0 0 5px 0 rgba(0,0,50,.5);
@@ -234,13 +244,13 @@ header{
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: $darkblue;
+        background-color: $like;
         border-radius: 50%;
         top: -10px;
         right: -10px;
         box-sizing: border-box;
         padding-top:10px;
-        color: $white;
+        color: $char;
         box-shadow: 0 5px 5px 0 rgba(0,0,50,.5);
 
         &:hover{
@@ -267,7 +277,7 @@ header{
       width: 80%;
       margin-top: 10px;
       border-radius: 10px;
-      background-color: $white;
+      background-color: $char;
       padding: 5px;
       box-sizing: border-box;
       box-shadow: 2px 2px 2px 0 rgba(0,0,50,0.1)
@@ -280,18 +290,19 @@ header{
 
 footer{
   background:url("./img/noise.png") ,
-          linear-gradient(0deg, $blue 0%, $darkblue 200%);
-  color: $white;
+        linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
+  background-size: 20px 20px;
+  color: $char;
   width: 100%;
   padding: 10px;
   box-shadow:0 0 5px 0 rgba(0,0,0,.5),
-            0 -10px 0 0 $darkblue inset;
+            0 -10px 0 0 $H1 inset;
 
   position: fixed;
   bottom: 0;
   z-index: 1;
 
   a{
-    color: $white;
+    color: $char;
   }
 }
