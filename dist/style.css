@@ -138,9 +138,20 @@ header {
       font-size: 1.2rem;
       margin-top: 20px;
       margin-bottom: 30px; }
+    .detail #description section > h1 {
+      padding: 10px;
+      font-size: 1.2rem;
+      height: 3rem; }
     .detail #description h1 {
       width: 100%;
-      font-size: 1.4rem; }
+      font-size: 1rem; }
+    .detail #description a {
+      display: block;
+      width: 90%;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px; }
     .detail #description .like {
       position: absolute;
       top: 0;
@@ -175,16 +186,41 @@ header {
       margin-left: auto;
       margin-right: auto; }
     .detail #comments h1 {
-      font-size: 1.4rem;
+      padding: 10px;
+      font-size: 1.2rem;
+      height: 3rem;
       width: 90%; }
     .detail #comments section {
       width: 80%;
       margin-top: 10px;
       border-radius: 10px;
       background-color: #def;
-      padding: 5px;
+      font-size: 1.2rem;
+      height: 3rem;
+      padding: 10px;
       box-sizing: border-box;
       box-shadow: 2px 2px 2px 0 rgba(0, 0, 50, 0.1); }
+  .detail #form {
+    width: 80%;
+    margin: auto; }
+    .detail #form input[type="text"] {
+      position: relative;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 10px;
+      background-color: #bcd;
+      font-size: 1.2rem;
+      height: 3rem;
+      padding: 10px;
+      box-sizing: border-box;
+      border: none;
+      box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.5), 1px 1px 3px 0 rgba(0, 0, 0, 0.5) inset; }
+    .detail #form input[type="button"] {
+      margin-left: 3%;
+      width: 15%;
+      height: 3rem;
+      padding: 10px;
+      border-radius: 20px; }
 
 footer {
   background: url("./img/noise.png"), linear-gradient(-45deg, #334, #334 25%, #443 25%, #443 50%, #334 50%, #334 75%, #443 75%, #443);

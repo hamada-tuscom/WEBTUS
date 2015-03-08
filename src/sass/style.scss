@@ -131,6 +131,7 @@ header{
       }
     }
 
+
   }
 }
 @keyframes slidein {
@@ -211,9 +212,24 @@ header{
       margin-bottom: 30px;
     }
 
+    section > h1{
+      padding: 10px;
+      font-size: 1.2rem;
+      height: 3rem;
+    }
+
     h1{
       width: 100%;
-      font-size: 1.4rem;
+      font-size: 1rem;
+    }
+
+    a{
+      display: block;
+      width: 90%;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right:auto;
+      margin-bottom: 20px;
     }
 
     .like{
@@ -241,6 +257,7 @@ header{
 
       box-sizing: border-box;
       & > div{
+
         position: absolute;
         width: 50px;
         height: 50px;
@@ -270,7 +287,9 @@ header{
     }
 
     h1{
-      font-size: 1.4rem;
+      padding: 10px;
+      font-size: 1.2rem;
+      height: 3rem;
       width: 90%;
     }
     section{
@@ -278,11 +297,38 @@ header{
       margin-top: 10px;
       border-radius: 10px;
       background-color: $char;
-      padding: 5px;
+      font-size: 1.2rem;
+      height: 3rem;
+      padding: 10px;
       box-sizing: border-box;
       box-shadow: 2px 2px 2px 0 rgba(0,0,50,0.1)
     }
 
+  }
+  #form{
+    width: 80%;
+    margin: auto;
+    input[type = "text"]{
+      position: relative;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 10px;
+      background-color: $back;
+      font-size: 1.2rem;
+      height: 3rem;
+      padding: 10px;
+      box-sizing: border-box;
+      border: none;
+      box-shadow: 1px 1px 3px 2px rgba(0,0,0,.5),
+                1px 1px 3px 0 rgba(0,0,0,.5)inset;
+    }
+    input[type = "button"]{
+      margin-left: 3%;
+      width: 15%;
+      height: 3rem;
+      padding: 10px;
+      border-radius: 20px;
+    }
   }
 
 }
