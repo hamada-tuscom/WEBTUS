@@ -85,7 +85,8 @@ var Detail = function(container, property){
     "excerpt": property.Product.excerpt,
     "Like": property.Product.Like,
     "description": property.Product.description,
-    "comments": property.Comments
+    "comments": property.Comments,
+    "dl": property.Product.DL
   };
 };
 Detail.prototype.writeHTML = function(){
@@ -95,11 +96,12 @@ Detail.prototype.writeHTML = function(){
   this.item.style.display = '';
 
   this.item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
-  this.item.childNodes[3].childNodes[1].setAttribute( "src" , this.data.src );
+  this.item.childNodes[3].childNodes[1].setAttribute( "src" , this.data.sc );
   this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
   this.item.childNodes[5].childNodes[3].childNodes[3].appendChild(document.createTextNode( this.data.description ));
   this.item.childNodes[5].childNodes[5].childNodes[1].appendChild(document.createTextNode( this.data.Like ));
   this.item.childNodes[5].childNodes[5].childNodes[3].id = "detailLike"+this.data.id;
+  this.item.childNodes[5].childNodes[7].childNodes[3].setAttribute( "href" , this.data.dl );
 
   this.item.childNodes[9].id = "form";
 
