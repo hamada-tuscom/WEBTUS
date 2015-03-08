@@ -47,7 +47,7 @@ GalleryItem.prototype.writeHTML = function(){
   this.item.style.display = '';
 
   this.item.childNodes[1].appendChild(document.createTextNode( this.data.title ));
-  this.item.childNodes[3].setAttribute( "src" , this.data.src );
+  this.item.childNodes[3].setAttribute( "src" , this.data.sc );
   this.item.childNodes[5].childNodes[1].appendChild(document.createTextNode( '作者: ' + this.data.author ));
   this.item.childNodes[5].childNodes[3].appendChild(document.createTextNode( this.data.excerpt ));
   this.item.childNodes[5].childNodes[5].appendChild(document.createTextNode( 'Like!: ' + this.data.Like ));
