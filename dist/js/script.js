@@ -105,7 +105,7 @@ Detail.prototype.writeHTML = function(){
 
   this.item.childNodes[9].id = "form";
 
-  this.item.childNodes[9].id = "delete";
+  this.item.childNodes[11].id = "delete";
 
   while(this.item.childNodes[7].firstChild){
     this.item.childNodes[7].removeChild(this.item.childNodes[7].firstChild);
