@@ -183,7 +183,7 @@ var Page = function(container){
         }
         for(i = 1; i <= gallery.length; i++){
           document.getElementById('item'+i).addEventListener('click',
-          (function(k){ return function(){writeDetail(k);}; })(i));
+            (function(k){ return function(){writeDetail(k);}; })(i));
         }
     });
   };
@@ -206,4 +206,6 @@ function main(){
 
   var page = new Page(container);
   page.display();
+  var header = document.getElementById("header");
+  header.addEventListener("click",page.display);
 }
