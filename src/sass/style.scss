@@ -22,7 +22,14 @@ html, body{
 body{
   background-color: $back;
 }
-
+@keyframes head {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 20px;
+  }
+}
 header{
   background:url("./img/noise.png") ,
         linear-gradient(-45deg, $H2, $H2 25%, $H3 25%, $H3 50%,$H2 50%, $H2 75%, $H3 75%,$H3);
@@ -39,9 +46,14 @@ header{
 
   &:hover{
     cursor: pointer;
+    animation-duration: 0.5s;
+    animation-name: head;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 
 }
+
 
 
 #container{
@@ -97,6 +109,10 @@ header{
 
     &:hover{
       cursor: pointer;
+      animation-duration: 0.5s;
+      animation-name: head;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
     }
   }
 
@@ -174,7 +190,15 @@ header{
     box-sizing: border-box;
     font-size: 1.8rem;
 
+    &:hover{
+      animation-duration: 0.5s;
+      animation-name: head;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
   }
+
 
   #sc{
     display: table-row;
@@ -221,6 +245,12 @@ header{
     h1{
       width: 100%;
       font-size: 1rem;
+      &:hover{
+        animation-duration: 0.5s;
+        animation-name: head;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
     }
 
     a{
@@ -291,6 +321,13 @@ header{
       font-size: 1.2rem;
       height: 3rem;
       width: 90%;
+      &:hover{
+
+        animation-duration: 0.5s;
+        animation-name: head;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
     }
     section{
       width: 80%;
@@ -347,6 +384,13 @@ footer{
   position: fixed;
   bottom: 0;
   z-index: 1;
+  &:hover{
+
+    animation-duration: 0.5s;
+    animation-name: head;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
 
   a{
     color: $char;
