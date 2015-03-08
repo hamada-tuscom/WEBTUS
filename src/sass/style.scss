@@ -1,5 +1,5 @@
 $darkblue: #10426A;
-
+$blue: #006DC3;
 $itemBase: #cde;
 
 $white: #def;
@@ -19,15 +19,22 @@ body{
 }
 
 header{
-  background-color: $darkblue;
+  background:url("./img/noise.png") ,
+          linear-gradient(0deg, $blue 0%, $darkblue 200%);
   color: $white;
   width: 100%;
   padding: 10px;
-  box-shadow:0 5px 2px 0 rgba(0,0,0,.5);
+  box-shadow:0 5px 2px 0 rgba(0,0,0,.5),
+              0 15px 0 0 $darkblue inset;
   position: fixed;
   z-index:1;
   height: 60px;
   overflow: hidden;
+
+  &:hover{
+    cursor: pointer;
+  }
+
 }
 
 
@@ -63,12 +70,25 @@ header{
   font-family: "メイリオ";
 
 
+  animation-duration: 0.8s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+
   h1{
-    background-color: $darkblue;
+    background:url("./img/noise.png") ,
+            linear-gradient(0deg, $blue 0%, $darkblue 200%);
     color: $white;
     font-size: 1.4rem;
     display: table-row;
     height: 1.4rem;
+
+    width: 100%;
+
+    box-shadow: 0 10px 0 0 $darkblue inset;
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   img{
@@ -77,26 +97,42 @@ header{
     display: table-cell;
   }
 
-  p{
-    margin: 10px;
-    text-align: left;
-  }
-
   section{
     position: relative;
+
+    p{
+      margin: 10px;
+      text-align: left;
+    }
+
+    .like{
+      position: absolute;
+      top: 0;
+      right: 5%;
+      padding: 2px;
+      border-radius: 4px;
+      background-color: $darkblue;
+      color: $white;
+      box-sizing: border-box;
+      box-shadow: 1px 2px 3px 1px rgba(0,0,50,.3);
+      font-size: 0.8rem;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+@keyframes slidein {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
   }
 
-  .like{
-    position: absolute;
-    top: 0;
-    right: 5%;
-    padding: 2px;
-    border-radius: 4px;
-    background-color: $darkblue;
-    color: $white;
-    box-sizing: border-box;
-    box-shadow: 1px 2px 3px 1px rgba(0,0,50,.3);
-    font-size: 0.8rem;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -116,23 +152,29 @@ header{
   box-shadow:0 5px 5px 0 rgba(0,0,0,.5);
 
   h1{
-    background-color: $darkblue;
+    background:url("./img/noise.png") ,
+            linear-gradient(0deg, $blue 0%, $darkblue 200%);
+            box-shadow: 0 10px 0 0 $darkblue inset;
+
     color: $white;
     width: 100%;
     height: 4rem;
     padding: 20px;
     box-sizing: border-box;
     font-size: 1.8rem;
+
   }
 
   #sc{
     display: table-row;
     text-align: center;
+
     img{
       width: 80%;
       display: table-cell;
       margin: 20px 10% 20px 10%;
     }
+
   }
 
   #description{
@@ -200,6 +242,10 @@ header{
         padding-top:10px;
         color: $white;
         box-shadow: 0 5px 5px 0 rgba(0,0,50,.5);
+
+        &:hover{
+          cursor: pointer;
+        }
       }
     }
   }
@@ -233,11 +279,14 @@ header{
 
 
 footer{
-  background-color: $darkblue;
+  background:url("./img/noise.png") ,
+          linear-gradient(0deg, $blue 0%, $darkblue 200%);
   color: $white;
   width: 100%;
   padding: 10px;
-  box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+  box-shadow:0 0 5px 0 rgba(0,0,0,.5),
+            0 -10px 0 0 $darkblue inset;
+
   position: fixed;
   bottom: 0;
   z-index: 1;
